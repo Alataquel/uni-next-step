@@ -1,12 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import VideoBackground from "@/components/VideoBackground";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { TrendingUp, Users, Target, Database, AlertCircle, ArrowRight, Building2, LineChart, UserCheck, Shield } from "lucide-react";
+import { TrendingUp, Users, Target, Database, AlertCircle, ArrowRight, Building2, LineChart, UserCheck, Shield, Rocket } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import heroUniversity from "@/assets/hero-university.jpg";
-import featureAnalytics from "@/assets/feature-analytics.jpg";
+import universityHero from "@/assets/university-hero.jpg";
+import featureAnalytics from "@/assets/feature-analytics-modern.jpg";
 
 interface Feature {
   icon: LucideIcon;
@@ -19,37 +20,38 @@ interface Benefit {
   icon: LucideIcon;
   title: string;
   description: string;
+  color: string;
 }
 
 const features: Feature[] = [
   {
     icon: Database,
-    title: "Comprehensive Outcome Tracking",
-    description: "Real-time visibility into placement rates, internship status, and career readiness metrics across your entire student population. Make data-driven decisions with confidence.",
+    title: "See The Whole Picture",
+    description: "Track every student's career journey in real-time. Know who's thriving, who needs help, and exactly how to support them. No more guessing - just data-driven decisions.",
     image: featureAnalytics,
   },
   {
     icon: TrendingUp,
-    title: "Labor Market Intelligence",
-    description: "Access comprehensive labor market insights to align curriculum with industry demands. Help students prepare for in-demand roles with up-to-date market data.",
+    title: "Stay Ahead of The Market",
+    description: "Get the inside scoop on what employers actually want. Align your programs with real market demand and prepare students for jobs that exist.",
     image: featureAnalytics,
   },
   {
     icon: Target,
-    title: "Skills Gap Analysis",
-    description: "Data-driven insights on skills gaps and emerging competencies to guide curriculum development, career counseling, and program improvements.",
+    title: "Spot Skills Gaps Before They Matter",
+    description: "Know exactly what skills your students have and what they're missing. Guide curriculum decisions with real data, not hunches.",
     image: featureAnalytics,
   },
   {
     icon: AlertCircle,
-    title: "Proactive Student Support",
-    description: "Identify at-risk students who need career guidance before they fall behind. Enable your team to provide timely, targeted support where it's needed most.",
+    title: "Help Students Before They Fall Behind",
+    description: "Identify at-risk students early and intervene with targeted support. Be proactive, not reactive.",
     image: featureAnalytics,
   },
   {
     icon: Users,
-    title: "Engagement & ROI Metrics",
-    description: "Track student engagement with career services and measure program effectiveness. Demonstrate ROI to stakeholders with comprehensive analytics and reporting.",
+    title: "Prove Your Impact",
+    description: "Show stakeholders exactly how your career services move the needle. Track engagement, measure ROI, and demonstrate real outcomes.",
     image: featureAnalytics,
   },
 ];
@@ -57,18 +59,21 @@ const features: Feature[] = [
 const benefits: Benefit[] = [
   {
     icon: LineChart,
-    title: "Measurable Impact",
-    description: "Data-driven insights help increase placement rates and demonstrate value to stakeholders.",
+    title: "Better Outcomes",
+    description: "Higher placement rates. Better job matches. Happier students.",
+    color: "from-emerald-500 to-teal-500",
   },
   {
     icon: UserCheck,
-    title: "Better Student Outcomes",
-    description: "Identify and assist students who need career guidance with targeted interventions.",
+    title: "Smarter Support",
+    description: "Target help where it's needed most. Stop wasting time on blanket approaches.",
+    color: "from-blue-500 to-indigo-500",
   },
   {
     icon: Shield,
-    title: "Enterprise Security",
-    description: "Bank-level security with SSO, compliance certifications, and dedicated support.",
+    title: "Enterprise Ready",
+    description: "Bank-level security, SSO, compliance certifications. We've got you covered.",
+    color: "from-purple-500 to-pink-500",
   },
 ];
 
@@ -78,92 +83,126 @@ const Universities = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero py-20 md:py-32 min-h-[85vh] flex items-center">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      <section className="relative overflow-hidden py-20 md:py-32 min-h-[90vh] flex items-center">
+        <VideoBackground opacity={0.25} />
         
-        {/* Animated Background Elements */}
-        <motion.div
-          className="absolute top-1/4 right-1/4 w-24 h-24 bg-accent/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        <div className="container relative mx-auto px-4">
+        <div className="container relative mx-auto px-4 z-10">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm font-medium text-primary-foreground backdrop-blur">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent backdrop-blur-xl"
+              >
                 <Building2 className="h-4 w-4" />
-                Trusted by Leading Universities
-              </div>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl">
-                Your Partner in{" "}
-                <span className="relative inline-block">
-                  Career Excellence
-                  <motion.span
-                    className="absolute -bottom-2 left-0 right-0 h-1 bg-primary-foreground/30 blur-sm"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                  />
+                Partnering with 50+ Universities
+              </motion.div>
+              
+              <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                <span className="block text-foreground">Career Services</span>
+                <span className="block bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
+                  That Actually Work
                 </span>
               </h1>
-              <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl">
-                We partner exclusively with universities to transform career outcomes. Your institution is our client, your success is our mission.
+              
+              <p className="mb-4 text-xl md:text-2xl font-medium text-foreground">
+                We're your partner, not a vendor
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" variant="secondary" className="group shadow-xl">
-                  Become a Partner
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur">
+              
+              <p className="mb-8 text-lg text-muted-foreground">
+                Universities are our clients. Your success is literally our business model. 
+                We give students amazing tools for free and help you prove the impact of your career services.
+              </p>
+              
+              <div className="flex flex-wrap gap-4 mb-8">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-gradient-to-r from-accent to-primary shadow-2xl shadow-accent/50 hover:shadow-accent/70 transition-all text-lg px-8">
+                    Become a Partner
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </motion.div>
+                <Button size="lg" variant="outline" className="backdrop-blur-xl border-2 text-lg px-8">
                   Schedule Demo
                 </Button>
               </div>
+
+              <div className="flex flex-wrap gap-6 text-sm">
+                {[
+                  { icon: Rocket, text: "Quick setup" },
+                  { icon: Shield, text: "Enterprise security" },
+                  { icon: UserCheck, text: "Dedicated support" },
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + i * 0.1 }}
+                    className="flex items-center gap-2 text-muted-foreground"
+                  >
+                    <item.icon className="h-4 w-4 text-accent" />
+                    <span>{item.text}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
+
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: 50, rotate: -5 }}
+              animate={{ opacity: 1, x: 0, rotate: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-gradient-primary blur-3xl opacity-30"></div>
+              <motion.div
+                className="absolute -inset-4 bg-gradient-to-r from-accent via-primary to-accent rounded-3xl blur-2xl opacity-30"
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
               <motion.img 
-                src={heroUniversity} 
-                alt="University career services analytics"
-                className="relative rounded-2xl shadow-2xl"
-                whileHover={{ scale: 1.02 }}
+                src={universityHero} 
+                alt="University analytics dashboard"
+                className="relative rounded-3xl shadow-2xl border-4 border-background"
+                whileHover={{ scale: 1.02, rotate: 1 }}
                 transition={{ duration: 0.3 }}
               />
+              
+              {/* Floating Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="absolute -bottom-6 -right-6 bg-background/95 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-border"
+              >
+                <div className="text-3xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  +24%
+                </div>
+                <div className="text-sm text-muted-foreground">Placement Rate Increase</div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
+
+        <style>{`
+          @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+        `}</style>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-to-b from-background to-muted/30">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -171,38 +210,38 @@ const Universities = () => {
             viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Why Partner with{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                ApplyLab
+            <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+              Why universities{" "}
+              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                choose us
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              We're not a marketplace. We're your dedicated partner in delivering exceptional career services.
+            <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
+              We're not a job board. We're your career services powerhouse.
             </p>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="group relative overflow-hidden border-border bg-card p-8 transition-all hover:shadow-xl hover:border-accent/50 h-full">
-                  <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-5"></div>
+                <Card className="group relative overflow-hidden border-2 bg-card p-8 transition-all hover:shadow-2xl hover:-translate-y-2 h-full">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
                   <div className="relative">
                     <motion.div
-                      className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-primary"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.2 }}
+                      className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${benefit.color} shadow-lg`}
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 400 }}
                     >
-                      <benefit.icon className="h-7 w-7" />
+                      <benefit.icon className="h-8 w-8 text-white" />
                     </motion.div>
-                    <h3 className="mb-2 text-xl font-bold">{benefit.title}</h3>
-                    <p className="text-muted-foreground">{benefit.description}</p>
+                    <h3 className="mb-3 text-2xl font-bold">{benefit.title}</h3>
+                    <p className="text-lg text-muted-foreground">{benefit.description}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -212,23 +251,22 @@ const Universities = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-16 text-center"
+            className="mb-20 text-center"
           >
-            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Enterprise-Grade{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Career Platform
+            <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
+              Everything you need in{" "}
+              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                one platform
               </span>
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Comprehensive tools to support students, track outcomes, and demonstrate the value of your career services.
+            <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
+              Stop cobbling together ten different tools. We've got it all.
             </p>
           </motion.div>
 
@@ -240,32 +278,44 @@ const Universities = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className={`grid gap-8 lg:gap-12 items-center ${
+                className={`grid gap-12 lg:gap-16 items-center ${
                   index % 2 === 0 ? 'lg:grid-cols-2' : 'lg:grid-cols-2'
                 }`}
               >
                 <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 text-accent">
-                    <feature.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mb-4 text-2xl font-bold md:text-3xl">{feature.title}</h3>
-                  <p className="text-lg text-muted-foreground mb-6">{feature.description}</p>
-                  <Button className="bg-gradient-primary shadow-primary hover:opacity-90 transition-opacity group">
-                    Learn More
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary shadow-lg"
+                  >
+                    <feature.icon className="h-7 w-7 text-white" />
+                  </motion.div>
+                  
+                  <h3 className="mb-4 text-3xl font-bold md:text-4xl">{feature.title}</h3>
+                  <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{feature.description}</p>
+                  
+                  <Button className="bg-gradient-to-r from-accent to-primary shadow-lg hover:shadow-xl transition-all group">
+                    See It In Action
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </div>
+
                 <motion.div
                   className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  whileHover={{ scale: 1.02, rotate: index % 2 === 0 ? 1 : -1 }}
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-primary blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="absolute -inset-6 bg-gradient-to-r from-accent via-primary to-accent blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                     <img 
                       src={feature.image} 
                       alt={feature.title}
-                      className="relative rounded-xl shadow-xl border border-border"
+                      className="relative rounded-2xl shadow-2xl border-4 border-background"
                     />
                   </div>
                 </motion.div>
@@ -276,32 +326,56 @@ const Universities = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-primary p-12 md:p-16 text-center shadow-2xl"
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent via-primary to-accent p-12 md:p-20 text-center shadow-2xl"
           >
-            <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+            <div className="absolute inset-0">
+              <motion.div
+                className="absolute inset-0 opacity-30"
+                style={{
+                  backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)",
+                  backgroundSize: "40px 40px",
+                }}
+                animate={{
+                  backgroundPosition: ["0px 0px", "40px 40px"],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+            </div>
+            
             <div className="relative">
-              <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
-                Let's Build Something Great Together
-              </h2>
-              <p className="mb-8 text-lg text-primary-foreground/90 mx-auto max-w-2xl">
-                Join leading universities partnering with ApplyLab to deliver exceptional career outcomes.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" variant="secondary" className="group shadow-xl">
-                  Partner With Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur">
-                  Request Information
-                </Button>
-              </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
+                  Let's transform outcomes together
+                </h2>
+                <p className="mb-8 text-xl text-white/90 mx-auto max-w-2xl">
+                  We're building the future of career services. Want in?
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    <Button size="lg" variant="secondary" className="shadow-2xl text-lg px-8">
+                      Partner With Us
+                      <Rocket className="ml-2 h-5 w-5" />
+                    </Button>
+                  </motion.div>
+                  <Button size="lg" variant="outline" className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl text-lg px-8">
+                    Talk to Sales
+                  </Button>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

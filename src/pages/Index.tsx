@@ -1,8 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import VideoBackground from "@/components/VideoBackground";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award } from "lucide-react";
+import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
@@ -40,93 +41,59 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-hero py-20 md:py-32 min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        
-        {/* Floating Elements */}
-        <motion.div
-          className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full blur-xl"
-          animate={{
-            y: [0, 30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-32 h-32 bg-accent/20 rounded-full blur-xl"
-          animate={{
-            y: [0, -30, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+      <section className="relative overflow-hidden py-20 md:py-32 min-h-[95vh] flex items-center">
+        <VideoBackground opacity={0.25} />
 
-        <div className="container relative mx-auto px-4">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="container relative mx-auto px-4 z-10">
+          <div className="mx-auto max-w-5xl text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-2 text-sm font-medium text-primary-foreground backdrop-blur"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-xl"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-foreground opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-foreground"></span>
-              </span>
-              Trusted by Leading Universities Worldwide
+              <Star className="h-4 w-4 fill-primary" />
+              Trusted by 50+ Universities Worldwide
             </motion.div>
             
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="mb-6 text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8 text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             >
-              Where{" "}
-              <span className="relative inline-block">
-                Careers
-                <motion.span
-                  className="absolute -bottom-2 left-0 right-0 h-1 bg-primary-foreground/30 blur-sm"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
+              <span className="block text-foreground mb-2">Where</span>
+              <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
+                Careers Take Off
               </span>
-              {" "}Begin
             </motion.h1>
             
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8 text-lg text-primary-foreground/90 md:text-xl"
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mb-12 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              Empowering universities to transform student career outcomes through 
-              intelligent tools and data-driven insights
+              We partner with universities to give students powerful career tools - for free.
+              You get the data and insights to prove your impact.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-8 flex flex-wrap justify-center gap-4"
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mb-12 flex flex-wrap justify-center gap-4"
             >
               <Link to="/universities">
-                <Button size="lg" variant="secondary" className="group shadow-xl">
-                  Partner With Us
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="lg" className="bg-gradient-to-r from-primary to-accent shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all text-lg px-8">
+                    Partner With Us
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </motion.div>
               </Link>
               <Link to="/students">
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur">
+                <Button size="lg" variant="outline" className="backdrop-blur-xl border-2 text-lg px-8">
                   For Students
                 </Button>
               </Link>
@@ -135,21 +102,25 @@ const Index = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-6 text-sm text-primary-foreground/80"
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground"
             >
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4" />
-                <span>Free for Students</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4" />
-                <span>Enterprise Support</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4" />
-                <span>AI-Powered Platform</span>
-              </div>
+              {[
+                { icon: Check, text: "100% Free for Students" },
+                { icon: Check, text: "Universities Are Our Clients" },
+                { icon: Check, text: "AI-Powered Intelligence" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.1 }}
+                  className="flex items-center gap-2"
+                >
+                  <item.icon className="h-4 w-4 text-primary" />
+                  <span>{item.text}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
@@ -157,19 +128,26 @@ const Index = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ duration: 1, delay: 0.9 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-primary-foreground/60"
+            className="text-muted-foreground"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>
         </motion.div>
+
+        <style>{`
+          @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+        `}</style>
       </section>
 
       {/* University Partner Section */}

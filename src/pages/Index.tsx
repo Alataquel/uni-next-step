@@ -42,7 +42,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32 min-h-[95vh] flex items-center">
-        <VideoBackground opacity={0.25} />
+        <VideoBackground opacity={0.4} withFloatingObjects={true} />
 
         <div className="container relative mx-auto px-4 z-10">
           <div className="mx-auto max-w-5xl text-center">
@@ -62,9 +62,9 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="mb-8 text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             >
-              <span className="block text-foreground mb-2">Where</span>
-              <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
-                Careers Take Off
+              <span className="block text-foreground mb-2">Career Acceleration Platform</span>
+              <span className="block text-primary">
+                Powered by AI
               </span>
             </motion.h1>
             
@@ -74,8 +74,7 @@ const Index = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mb-12 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              We partner with universities to give students powerful career tools - for free.
-              You get the data and insights to prove your impact.
+              Empowering universities to deliver exceptional career outcomes for their students through advanced AI technology and comprehensive analytics.
             </motion.p>
 
             <motion.div
@@ -86,14 +85,14 @@ const Index = () => {
             >
               <Link to="/universities">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-gradient-to-r from-primary to-accent shadow-2xl shadow-primary/50 hover:shadow-primary/70 transition-all text-lg px-8">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-xl text-lg px-8">
                     Partner With Us
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </motion.div>
               </Link>
               <Link to="/students">
-                <Button size="lg" variant="outline" className="backdrop-blur-xl border-2 text-lg px-8">
+                <Button size="lg" variant="outline" className="border-2 text-lg px-8">
                   For Students
                 </Button>
               </Link>
@@ -166,7 +165,7 @@ const Index = () => {
             </div>
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               Your Partner in{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-primary">
                 Career Success
               </span>
             </h2>
@@ -285,7 +284,7 @@ const Index = () => {
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
               Built for{" "}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="text-primary">
                 Scale & Impact
               </span>
             </h2>

@@ -105,7 +105,7 @@ const Universities = () => {
               
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 <span className="block text-foreground">Career Services</span>
-                <span className="block bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent bg-[length:200%_100%] animate-[shimmer_3s_linear_infinite]">
+                <span className="block text-primary">
                   That Actually Work
                 </span>
               </h1>
@@ -121,12 +121,12 @@ const Universities = () => {
               
               <div className="flex flex-wrap gap-4 mb-8">
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-gradient-to-r from-accent to-primary shadow-2xl shadow-accent/50 hover:shadow-accent/70 transition-all text-lg px-8">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-xl text-lg px-8">
                     Become a Partner
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </motion.div>
-                <Button size="lg" variant="outline" className="backdrop-blur-xl border-2 text-lg px-8">
+                <Button size="lg" variant="outline" className="border-2 text-lg px-8">
                   Schedule Demo
                 </Button>
               </div>
@@ -212,7 +212,7 @@ const Universities = () => {
           >
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Why universities{" "}
-              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              <span className="text-primary">
                 choose us
               </span>
             </h2>
@@ -261,7 +261,7 @@ const Universities = () => {
           >
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Everything you need in{" "}
-              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              <span className="text-primary">
                 one platform
               </span>
             </h2>
@@ -296,7 +296,7 @@ const Universities = () => {
                   <h3 className="mb-4 text-3xl font-bold md:text-4xl">{feature.title}</h3>
                   <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{feature.description}</p>
                   
-                  <Button className="bg-gradient-to-r from-accent to-primary shadow-lg hover:shadow-xl transition-all group">
+                  <Button className="bg-primary hover:bg-primary/90 shadow-lg transition-all group">
                     See It In Action
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Button>
@@ -332,7 +332,7 @@ const Universities = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent via-primary to-accent p-12 md:p-20 text-center shadow-2xl"
+            className="relative overflow-hidden rounded-3xl bg-primary p-12 md:p-20 text-center shadow-2xl"
           >
             <div className="absolute inset-0">
               <motion.div
@@ -366,12 +366,12 @@ const Universities = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button size="lg" variant="secondary" className="shadow-2xl text-lg px-8">
+                    <Button size="lg" variant="secondary" className="shadow-2xl text-lg px-8 bg-white text-primary hover:bg-white/90">
                       Partner With Us
                       <Rocket className="ml-2 h-5 w-5" />
                     </Button>
                   </motion.div>
-                  <Button size="lg" variant="outline" className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 backdrop-blur-xl text-lg px-8">
+                  <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8">
                     Talk to Sales
                   </Button>
                 </div>

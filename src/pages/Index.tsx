@@ -5,7 +5,7 @@ import StatsCounter from "@/components/StatsCounter";
 import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Shield, Globe, CheckCircle2, Mic, FileCheck, BookOpen } from "lucide-react";
+import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Shield, Globe, CheckCircle2, Mic, FileCheck, BookOpen, FileEdit, Search, ListChecks } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
@@ -539,7 +539,7 @@ const Index = () => {
               <span className="text-primary">Every Career Need</span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              From AI-powered resume grading to cover letter generation - with interview prep and case study tools coming soon.
+              From resume grading and building to job search and application tracking - with AI-powered cover letters, interview prep, and case study tools.
             </p>
           </motion.div>
 
@@ -552,24 +552,45 @@ const Index = () => {
             />
 
             <AnimatedFeature
+              icon={FileEdit}
+              title="Resume Builder"
+              description="Create professional, ATS-optimized resumes with our intuitive builder. Choose from multiple templates, customize layouts, and let our AI guide you through crafting compelling content. Export in multiple formats and keep all versions organized in one place for different applications."
+              position="right"
+            />
+
+            <AnimatedFeature
               icon={FileText}
               title="Cover Letter Maker AI"
               description="Generate compelling, personalized cover letters tailored to each job application. Our AI analyzes job descriptions and crafts professional cover letters that highlight your relevant experience and skills. Save time while maintaining authenticity and personalization for every application."
+              position="left"
+            />
+
+            <AnimatedFeature
+              icon={Search}
+              title="Job Board"
+              description="Discover opportunities from thousands of companies all in one place. Filter by industry, location, experience level, and more. Get personalized job recommendations based on your profile and preferences. Save searches and receive instant alerts when new matching positions are posted."
               position="right"
+            />
+
+            <AnimatedFeature
+              icon={ListChecks}
+              title="Application Tracking"
+              description="Manage all your applications in one centralized dashboard. Track application status, set reminders for follow-ups, and visualize your job search pipeline. Never miss a deadline with automated notifications and stay organized throughout your entire job search journey."
+              position="left"
             />
 
             <AnimatedFeature
               icon={Mic}
               title="Interview Preparation (Coming Soon)"
               description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics will help you ace every interview."
-              position="left"
+              position="right"
             />
 
             <AnimatedFeature
               icon={BookOpen}
               title="Case Study Prep (Coming Soon)"
               description="Master case interviews with structured frameworks and practice scenarios. Our platform will provide industry-specific case studies, step-by-step solution guides, and expert tips to help you excel in consulting and analytical interviews."
-              position="right"
+              position="left"
             />
           </div>
         </div>

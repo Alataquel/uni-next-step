@@ -42,7 +42,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32 min-h-[95vh] flex items-center">
-        <VideoBackground opacity={0.4} withFloatingObjects={true} />
+        <VideoBackground opacity={0.85} />
 
         <div className="container relative mx-auto px-4 z-10">
           <div className="mx-auto max-w-5xl text-center">

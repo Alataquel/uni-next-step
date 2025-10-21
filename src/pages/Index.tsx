@@ -152,25 +152,25 @@ const Index = () => {
               <div className="mb-2 text-4xl font-bold text-primary">
                 <StatsCounter end={10} suffix="+" />
               </div>
-              <p className="text-sm text-muted-foreground">Universities in Pipeline</p>
-            </div>
-            <div className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={5} />
-              </div>
               <p className="text-sm text-muted-foreground">Active Pilot Programs</p>
             </div>
             <div className="text-center">
               <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={2} suffix="K+" />
+                <StatsCounter end={5} suffix="K+" />
               </div>
-              <p className="text-sm text-muted-foreground">Students Reached</p>
+              <p className="text-sm text-muted-foreground">Job Postings</p>
             </div>
             <div className="text-center">
               <div className="mb-2 text-4xl font-bold text-primary">
                 <StatsCounter end={1} suffix="K+" />
               </div>
               <p className="text-sm text-muted-foreground">Resumes Analyzed</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary">
+                <StatsCounter end={50} suffix="+" />
+              </div>
+              <p className="text-sm text-muted-foreground">Partner Companies</p>
             </div>
           </motion.div>
         </div>

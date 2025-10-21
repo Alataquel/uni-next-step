@@ -4,37 +4,9 @@ import AnimatedFeature from "@/components/AnimatedFeature";
 import DemoVideo from "@/components/DemoVideo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Briefcase, FileText, Award, Mail, BarChart3, ArrowRight, Sparkles, Zap, Target, Star, TrendingUp, CheckCircle, Mic, BookOpen } from "lucide-react";
-import { LucideIcon } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { motion } from "framer-motion";
-
-interface Benefit {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  color: string;
-}
-
-const benefits: Benefit[] = [
-  {
-    icon: Zap,
-    title: "Lightning Fast",
-    description: "Apply to 10 jobs in the time it used to take for one. Seriously.",
-    color: "from-yellow-500 to-orange-500",
-  },
-  {
-    icon: Target,
-    title: "Get Better Results",
-    description: "AI-graded resumes and tailored cover letters = better applications.",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Sparkles,
-    title: "Stand Out",
-    description: "Look like a pro, even if this is your first rodeo.",
-    color: "from-purple-500 to-pink-500",
-  },
-];
+import { benefits, features, trustItems } from "@/data/student-content";
 
 const Students = () => {
   return (
@@ -128,11 +100,7 @@ const Students = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground"
             >
-              {[
-                { icon: CheckCircle, text: "No credit card needed" },
-                { icon: CheckCircle, text: "Set up in 2 minutes" },
-                { icon: CheckCircle, text: "Get better results faster" },
-              ].map((item, i) => (
+              {trustItems.map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
@@ -177,24 +145,22 @@ const Students = () => {
           <div className="grid gap-6 md:grid-cols-3">
             {benefits.map((benefit, index) => (
               <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 50 }}
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card className="group relative overflow-hidden border-2 bg-card p-8 transition-all hover:shadow-2xl hover:-translate-y-2 h-full">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
+                <Card className="group relative overflow-hidden border-2 bg-card p-8 transition-all hover:shadow-2xl hover:border-primary h-full">
+                  <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-5"></div>
                   <div className="relative">
-                    <motion.div
-                      className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${benefit.color} shadow-lg`}
-                      whileHover={{ scale: 1.1, rotate: 10 }}
-                      transition={{ type: "spring", stiffness: 400, duration: 0.3 }}
-                    >
+                    <div className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${benefit.color} shadow-xl`}>
                       <benefit.icon className="h-8 w-8 text-white" />
-                    </motion.div>
+                    </div>
                     <h3 className="mb-3 text-2xl font-bold">{benefit.title}</h3>
-                    <p className="text-lg text-muted-foreground">{benefit.description}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {benefit.description}
+                    </p>
                   </div>
                 </Card>
               </motion.div>
@@ -225,54 +191,15 @@ const Students = () => {
           </motion.div>
 
           <div className="space-y-32">
-            <AnimatedFeature
-              icon={Briefcase}
-              title="Smart Job Board"
-              description="Forget endless scrolling. Our AI learns what you want and surfaces opportunities you'll actually love. Get matched with roles that fit your skills, goals, and vibe. Discover jobs 10x faster with intelligent matching that understands your career aspirations."
-              position="left"
-            />
-
-            <AnimatedFeature
-              icon={FileText}
-              title="Resume Builder That Doesn't Suck"
-              description="No more staring at blank templates. Our AI helps you craft a resume that actually gets past those annoying ATS bots and catches recruiter eyes. With a 92% ATS pass rate, your resume will stand out from the crowd."
-              position="right"
-            />
-
-            <AnimatedFeature
-              icon={Award}
-              title="Instant Resume Feedback"
-              description="Get real talk on your resume in seconds. We'll tell you exactly what's working and what's not - no sugar coating, just actionable insights. Receive comprehensive feedback in under 30 seconds to perfect your application."
-              position="left"
-            />
-
-            <AnimatedFeature
-              icon={Mail}
-              title="Cover Letters Made Easy"
-              description="Stop copying templates. Our AI helps you write compelling, personalized cover letters that sound like you - just way more polished. Create perfect cover letters in just 5 minutes with AI-powered personalization."
-              position="right"
-            />
-
-            <AnimatedFeature
-              icon={BarChart3}
-              title="Track Everything, Miss Nothing"
-              description="Keep tabs on every application with smart reminders and follow-ups. Never wonder 'did I apply there?' again. Stay 100% organized with our comprehensive application tracking system."
-              position="left"
-            />
-
-            <AnimatedFeature
-              icon={Mic}
-              title="Interview Preparation (Coming Soon)"
-              description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics will help you ace every interview."
-              position="right"
-            />
-
-            <AnimatedFeature
-              icon={BookOpen}
-              title="Case Study Prep (Coming Soon)"
-              description="Master case interviews with structured frameworks and practice scenarios. Our platform will provide industry-specific case studies, step-by-step solution guides, and expert tips to help you excel in consulting and analytical interviews."
-              position="left"
-            />
+            {features.map((feature, index) => (
+              <AnimatedFeature
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                position={feature.position}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -320,7 +247,7 @@ const Students = () => {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button size="lg" variant="secondary" className="shadow-2xl text-lg px-8 bg-white text-primary hover:bg-white/90">
                       Start Your Journey
-                      <Sparkles className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </motion.div>
                   <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 text-lg px-8">

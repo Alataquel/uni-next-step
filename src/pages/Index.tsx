@@ -1,16 +1,32 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
-import StatsCounter from "@/components/StatsCounter";
+import PilotMetrics from "@/components/PilotMetrics";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Eye, Mic, Shield, Globe, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
-
 const Index = () => {
+  const prefersReducedMotion = useReducedMotion();
+
+  const getAnimationProps = (delay = 0) => {
+    if (prefersReducedMotion) {
+      return {
+        initial: { opacity: 0 },
+        whileInView: { opacity: 1 },
+        transition: { duration: 0.3 }
+      };
+    }
+    return {
+      initial: { opacity: 0, y: 24 },
+      whileInView: { opacity: 1, y: 0 },
+      transition: { duration: 0.5, delay }
+    };
+  };
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -44,18 +60,18 @@ const Index = () => {
             </motion.h1>
             
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-12 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
               Empowering universities to deliver exceptional career outcomes for their students through advanced AI technology and comprehensive analytics.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="mb-12 flex flex-wrap justify-center gap-4"
             >
               <Link to="/universities">
@@ -123,6 +139,9 @@ const Index = () => {
           }
         `}</style>
       </section>
+
+      {/* Pilot Metrics Section */}
+      <PilotMetrics />
 
       {/* Segments We Serve Section */}
       <section className="py-20 bg-background">
@@ -231,60 +250,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
-          >
-            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Growing With{" "}
-              <span className="text-primary">Leading Institutions</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid gap-8 md:grid-cols-4">
-            {[
-              { icon: Building2, number: 10, suffix: "", label: "Universities in Pipeline" },
-              { icon: Users, number: 5, suffix: "", label: "Active Pilot Programs" },
-              { icon: TrendingUp, number: 2, suffix: "K+", label: "Students Reached" },
-              { icon: Award, number: 1, suffix: "K+", label: "Resumes Analyzed" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="relative overflow-hidden border-2 bg-card p-8 text-center transition-all hover:shadow-xl hover:border-primary/50">
-                  <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity hover:opacity-5"></div>
-                  <div className="relative">
-                    <stat.icon className="mx-auto mb-4 h-12 w-12 text-primary" />
-                    <div className="mb-2 text-4xl font-bold text-primary">
-                      <StatsCounter end={stat.number} suffix={stat.suffix} />
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* AI Platform Capabilities */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            {...getAnimationProps()}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -574,16 +545,16 @@ const Index = () => {
             ].map((feature, index) => (
               <motion.div
                 key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                {...getAnimationProps(index * 0.12)}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
               >
                 <div className="flex-1">
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    {...(prefersReducedMotion ? { initial: { opacity: 0 }, whileInView: { opacity: 1 } } : {
+                      initial: { opacity: 0, scale: 0.95 },
+                      whileInView: { opacity: 1, scale: 1 }
+                    })}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                     className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-xl`}
@@ -606,7 +577,7 @@ const Index = () => {
 
                 <motion.div
                   className="flex-1"
-                  whileHover={{ scale: 1.02 }}
+                  {...(prefersReducedMotion ? {} : { whileHover: { scale: 1.02 } })}
                   transition={{ duration: 0.3 }}
                 >
                   <div className={`relative rounded-2xl p-12 bg-gradient-to-br ${feature.gradient} shadow-2xl`}>

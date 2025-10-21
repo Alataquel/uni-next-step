@@ -1,4 +1,4 @@
-import heroVideoBg from "@/assets/hero-video-bg.jpg";
+import heroVideoBg from "@/assets/hero-students-bg.jpg";
 
 interface VideoBackgroundProps {
   opacity?: number;

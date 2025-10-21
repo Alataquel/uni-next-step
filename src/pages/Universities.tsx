@@ -1,20 +1,11 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import VideoBackground from "@/components/VideoBackground";
+import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TrendingUp, Users, Target, Database, AlertCircle, ArrowRight, Building2, LineChart, UserCheck, Shield, Rocket } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import universityHero from "@/assets/university-hero.jpg";
-import featureAnalytics from "@/assets/feature-analytics-modern.jpg";
-
-interface Feature {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  image: string;
-}
 
 interface Benefit {
   icon: LucideIcon;
@@ -22,39 +13,6 @@ interface Benefit {
   description: string;
   color: string;
 }
-
-const features: Feature[] = [
-  {
-    icon: Database,
-    title: "See The Whole Picture",
-    description: "Track every student's career journey in real-time. Know who's thriving, who needs help, and exactly how to support them. No more guessing - just data-driven decisions.",
-    image: featureAnalytics,
-  },
-  {
-    icon: TrendingUp,
-    title: "Stay Ahead of The Market",
-    description: "Get the inside scoop on what employers actually want. Align your programs with real market demand and prepare students for jobs that exist.",
-    image: featureAnalytics,
-  },
-  {
-    icon: Target,
-    title: "Spot Skills Gaps Before They Matter",
-    description: "Know exactly what skills your students have and what they're missing. Guide curriculum decisions with real data, not hunches.",
-    image: featureAnalytics,
-  },
-  {
-    icon: AlertCircle,
-    title: "Help Students Before They Fall Behind",
-    description: "Identify at-risk students early and intervene with targeted support. Be proactive, not reactive.",
-    image: featureAnalytics,
-  },
-  {
-    icon: Users,
-    title: "Prove Your Impact",
-    description: "Show stakeholders exactly how your career services move the needle. Track engagement, measure ROI, and demonstrate real outcomes.",
-    image: featureAnalytics,
-  },
-];
 
 const benefits: Benefit[] = [
   {
@@ -83,122 +41,83 @@ const Universities = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32 min-h-[90vh] flex items-center">
-        <VideoBackground opacity={0.25} />
-        
+      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-subtle">
         <div className="container relative mx-auto px-4 z-10">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+          <div className="mx-auto max-w-5xl text-center">
             <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent backdrop-blur-xl"
+            >
+              <Building2 className="h-4 w-4" />
+              Partnering with 50+ Universities
+            </motion.div>
+            
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="mb-8 text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
             >
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2 text-sm font-medium text-accent backdrop-blur-xl"
-              >
-                <Building2 className="h-4 w-4" />
-                Partnering with 50+ Universities
-              </motion.div>
-              
-              <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-                <span className="block text-foreground">Career Services</span>
-                <span className="block text-primary">
-                  That Actually Work
-                </span>
-              </h1>
-              
-              <p className="mb-4 text-xl md:text-2xl font-medium text-foreground">
-                We're your partner, not a vendor
-              </p>
-              
-              <p className="mb-8 text-lg text-muted-foreground">
-                Universities are our clients. Your success is literally our business model. 
-                We give students amazing tools for free and help you prove the impact of your career services.
-              </p>
-              
-              <div className="flex flex-wrap gap-4 mb-8">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-xl text-lg px-8">
-                    Become a Partner
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </motion.div>
-                <Button size="lg" variant="outline" className="border-2 text-lg px-8">
-                  Schedule Demo
-                </Button>
-              </div>
+              <span className="block text-foreground mb-2">Career Services</span>
+              <span className="block text-primary">
+                That Actually Work
+              </span>
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="mb-12 text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+              Universities are our clients. Your success is literally our business model. 
+              We give students amazing tools for free and help you prove the impact of your career services.
+            </motion.p>
 
-              <div className="flex flex-wrap gap-6 text-sm">
-                {[
-                  { icon: Rocket, text: "Quick setup" },
-                  { icon: Shield, text: "Enterprise security" },
-                  { icon: UserCheck, text: "Dedicated support" },
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + i * 0.1 }}
-                    className="flex items-center gap-2 text-muted-foreground"
-                  >
-                    <item.icon className="h-4 w-4 text-accent" />
-                    <span>{item.text}</span>
-                  </motion.div>
-                ))}
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mb-12 flex flex-wrap justify-center gap-4"
+            >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" className="bg-primary hover:bg-primary/90 shadow-xl text-lg px-8">
+                  Become a Partner
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </motion.div>
+              <Button size="lg" variant="outline" className="border-2 text-lg px-8">
+                Schedule Demo
+              </Button>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50, rotate: -5 }}
-              animate={{ opacity: 1, x: 0, rotate: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground"
             >
-              <motion.div
-                className="absolute -inset-4 bg-gradient-to-r from-accent via-primary to-accent rounded-3xl blur-2xl opacity-30"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 5, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.img 
-                src={universityHero} 
-                alt="University analytics dashboard"
-                className="relative rounded-3xl shadow-2xl border-4 border-background"
-                whileHover={{ scale: 1.02, rotate: 1 }}
-                transition={{ duration: 0.3 }}
-              />
-              
-              {/* Floating Stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="absolute -bottom-6 -right-6 bg-background/95 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-border"
-              >
-                <div className="text-3xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                  +24%
-                </div>
-                <div className="text-sm text-muted-foreground">Placement Rate Increase</div>
-              </motion.div>
+              {[
+                { icon: Rocket, text: "Quick setup" },
+                { icon: Shield, text: "Enterprise security" },
+                { icon: UserCheck, text: "Dedicated support" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + i * 0.1 }}
+                  className="flex items-center gap-2"
+                >
+                  <item.icon className="h-4 w-4 text-accent" />
+                  <span>{item.text}</span>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
         </div>
-
-        <style>{`
-          @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-          }
-        `}</style>
       </section>
 
       {/* Benefits Section */}
@@ -251,13 +170,13 @@ const Universities = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-20 text-center"
+            className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
               Everything you need in{" "}
@@ -271,56 +190,40 @@ const Universities = () => {
           </motion.div>
 
           <div className="space-y-32">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className={`grid gap-12 lg:gap-16 items-center ${
-                  index % 2 === 0 ? 'lg:grid-cols-2' : 'lg:grid-cols-2'
-                }`}
-              >
-                <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-primary shadow-lg"
-                  >
-                    <feature.icon className="h-7 w-7 text-white" />
-                  </motion.div>
-                  
-                  <h3 className="mb-4 text-3xl font-bold md:text-4xl">{feature.title}</h3>
-                  <p className="text-xl text-muted-foreground mb-6 leading-relaxed">{feature.description}</p>
-                  
-                  <Button className="bg-primary hover:bg-primary/90 shadow-lg transition-all group">
-                    See It In Action
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </div>
+            <AnimatedFeature
+              icon={Database}
+              title="See The Whole Picture"
+              description="Track every student's career journey in real-time. Know who's thriving, who needs help, and exactly how to support them. No more guessing - just data-driven decisions that improve outcomes across your institution."
+              position="left"
+            />
 
-                <motion.div
-                  className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
-                  whileHover={{ scale: 1.02, rotate: index % 2 === 0 ? 1 : -1 }}
-                >
-                  <div className="relative group">
-                    <div className="absolute -inset-6 bg-gradient-to-r from-accent via-primary to-accent blur-3xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <img 
-                      src={feature.image} 
-                      alt={feature.title}
-                      className="relative rounded-2xl shadow-2xl border-4 border-background"
-                    />
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
+            <AnimatedFeature
+              icon={TrendingUp}
+              title="Stay Ahead of The Market"
+              description="Get the inside scoop on what employers actually want. Align your programs with real market demand and prepare students for jobs that exist. Access comprehensive labor market analytics and industry trends."
+              position="right"
+            />
+
+            <AnimatedFeature
+              icon={Target}
+              title="Spot Skills Gaps Before They Matter"
+              description="Know exactly what skills your students have and what they're missing. Guide curriculum decisions with real data, not hunches. Identify emerging skills gaps and address them proactively."
+              position="left"
+            />
+
+            <AnimatedFeature
+              icon={AlertCircle}
+              title="Help Students Before They Fall Behind"
+              description="Identify at-risk students early and intervene with targeted support. Be proactive, not reactive. Our early warning system helps you provide personalized assistance when it matters most."
+              position="right"
+            />
+
+            <AnimatedFeature
+              icon={Users}
+              title="Prove Your Impact"
+              description="Show stakeholders exactly how your career services move the needle. Track engagement, measure ROI, and demonstrate real outcomes with comprehensive analytics and beautiful reporting tools."
+              position="left"
+            />
           </div>
         </div>
       </section>

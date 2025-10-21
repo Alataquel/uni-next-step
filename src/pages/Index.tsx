@@ -28,7 +28,7 @@ const Index = () => {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-xl"
             >
               <Star className="h-4 w-4 fill-primary" />
-              Trusted by 50+ Universities Worldwide
+              Partnering with Leading Universities
             </motion.div>
             
             <motion.h1
@@ -238,20 +238,21 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Trusted by Leading{" "}
-              <span className="text-primary">Institutions Worldwide</span>
+              Growing With{" "}
+              <span className="text-primary">Leading Institutions</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-4">
             {[
-              { icon: Building2, number: 50, suffix: "+", label: "University Partners" },
-              { icon: Users, number: 100, suffix: "K+", label: "Active Students" },
-              { icon: TrendingUp, number: 85, suffix: "%", label: "Placement Rate" },
-              { icon: Award, number: 500, suffix: "K+", label: "Resumes Optimized" },
+              { icon: Building2, number: 10, suffix: "", label: "Universities in Pipeline" },
+              { icon: Users, number: 5, suffix: "", label: "Active Pilot Programs" },
+              { icon: TrendingUp, number: 2, suffix: "K+", label: "Students Reached" },
+              { icon: Award, number: 1, suffix: "K+", label: "Resumes Analyzed" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -283,6 +284,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -290,47 +292,35 @@ const Index = () => {
               <span className="text-primary">Your Success</span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              World-class capabilities powering ApplyLab's career acceleration platform.
+              Advanced AI technology powering intelligent career guidance and personalized recommendations.
             </p>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: Brain,
-                title: "Smart Parsing",
-                description: "Instant benchmarking and scoring for targeted guidance. User profiles evaluated on 100+ parameters including language, skills, and presentation.",
+                title: "Large Language Models",
+                description: "Powered by state-of-the-art LLMs to understand context, generate personalized content, and provide intelligent career guidance tailored to each student's unique journey.",
                 color: "from-purple-500 to-pink-500"
               },
               {
-                icon: Eye,
-                title: "Computer Vision",
-                description: "Audio-video analysis on body language, speech, and content. Real-time feedback on verbal and non-verbal communication.",
+                icon: FileText,
+                title: "Natural Language Processing",
+                description: "Advanced NLP algorithms analyze resumes, cover letters, and job descriptions to optimize content, improve keyword matching, and enhance application quality.",
                 color: "from-blue-500 to-cyan-500"
               },
               {
                 icon: Target,
-                title: "Smart Skills Engine",
-                description: "Skill detection through advanced machine learning algorithms. Comprehensive competency mapping and gap analysis.",
+                title: "Skill-Based Matching",
+                description: "Intelligent matching algorithms (coming soon) that connect students with opportunities based on their skills, experience, and career goals for better placement outcomes.",
                 color: "from-green-500 to-emerald-500"
               },
               {
-                icon: FileText,
-                title: "NLP Processing",
-                description: "Natural language understanding for resume optimization, cover letter generation, and application content enhancement.",
-                color: "from-orange-500 to-red-500"
-              },
-              {
-                icon: BarChart3,
-                title: "Predictive Analytics",
-                description: "Data-driven insights to predict success rates and optimize application strategies for better outcomes.",
-                color: "from-indigo-500 to-purple-500"
-              },
-              {
                 icon: Zap,
-                title: "Real-time Feedback",
-                description: "Instant, actionable recommendations powered by AI to continuously improve your career materials and interview skills.",
-                color: "from-yellow-500 to-orange-500"
+                title: "Real-Time Feedback Loops",
+                description: "Continuous learning system that provides instant, actionable feedback and improves recommendations based on user interactions and success patterns.",
+                color: "from-orange-500 to-red-500"
               },
             ].map((feature, index) => (
               <motion.div
@@ -367,29 +357,30 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Why Leading Universities{" "}
+              Why Universities{" "}
               <span className="text-primary">Choose ApplyLab</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: Shield, title: "Enterprise Security", description: "Bank-level encryption and compliance with SOC 2, GDPR, and FERPA standards" },
-              { icon: Rocket, title: "Quick Deployment", description: "Get started in days, not months. Seamless SSO integration and white-label options" },
-              { icon: Globe, title: "Global Scale", description: "Support for 50+ languages and localized content for worldwide deployment" },
-              { icon: CheckCircle2, title: "Proven Results", description: "24% average increase in placement rates across partner institutions" },
-              { icon: Users, title: "Dedicated Support", description: "24/7 customer success team and personalized onboarding and training" },
-              { icon: TrendingUp, title: "Continuous Innovation", description: "Regular updates with latest AI advancements and industry best practices" },
+              { icon: Shield, title: "Enterprise Security", description: "Built with security best practices and compliance-ready architecture" },
+              { icon: Rocket, title: "Quick Deployment", description: "Get started quickly with seamless integration and comprehensive onboarding support" },
+              { icon: CheckCircle2, title: "Measurable Impact", description: "Track student engagement and career outcomes with comprehensive analytics" },
+              { icon: Users, title: "Dedicated Support", description: "Personalized onboarding, training, and ongoing support for your institution" },
+              { icon: TrendingUp, title: "Continuous Innovation", description: "Regular platform updates with the latest AI advancements and features" },
+              { icon: Globe, title: "Scalable Platform", description: "Designed to grow with your institution from pilot programs to full deployment" },
             ].map((item, index) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="flex gap-4"
               >
                 <div className="flex-shrink-0">
@@ -538,6 +529,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -585,7 +577,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
               >
                 <div className="flex-1">
@@ -593,6 +585,7 @@ const Index = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
                     className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-xl`}
                   >
                     <feature.icon className="h-8 w-8 text-white" />
@@ -677,7 +670,7 @@ const Index = () => {
               >
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-xl">
                   <Sparkles className="h-4 w-4" />
-                  Join 50+ Leading Universities
+                  Join Our Growing Network
                 </div>
                 <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl">
                   Ready to Transform Career Outcomes?

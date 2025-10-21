@@ -135,6 +135,7 @@ const Students = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
@@ -152,7 +153,7 @@ const Students = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <Card className="group relative overflow-hidden border-2 bg-card p-8 transition-all hover:shadow-2xl hover:-translate-y-2 h-full">
                   <div className={`absolute inset-0 bg-gradient-to-br ${benefit.color} opacity-0 group-hover:opacity-10 transition-opacity`} />
@@ -160,7 +161,7 @@ const Students = () => {
                     <motion.div
                       className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${benefit.color} shadow-lg`}
                       whileHover={{ scale: 1.1, rotate: 10 }}
-                      transition={{ type: "spring", stiffness: 400 }}
+                      transition={{ type: "spring", stiffness: 400, duration: 0.3 }}
                     >
                       <benefit.icon className="h-8 w-8 text-white" />
                     </motion.div>
@@ -181,6 +182,7 @@ const Students = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">

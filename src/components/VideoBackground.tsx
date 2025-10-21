@@ -1,4 +1,4 @@
-import heroVideoBg from "@/assets/hero-students-bg.jpg";
+import heroYoungStudents from "@/assets/hero-young-students.jpg";
 
 interface VideoBackgroundProps {
   opacity?: number;
@@ -11,7 +11,7 @@ const VideoBackground = ({ opacity = 0.7 }: VideoBackgroundProps) => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${heroVideoBg})`,
+          backgroundImage: `url(${heroYoungStudents})`,
         }}
       />
       

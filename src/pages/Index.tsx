@@ -2,9 +2,10 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
 import PilotMetrics from "@/components/PilotMetrics";
+import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Eye, Mic, Shield, Globe, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Shield, Globe, CheckCircle2, Mic } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
@@ -493,14 +494,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Platform Features */}
+      {/* Comprehensive Solutions Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            {...getAnimationProps()}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
@@ -512,94 +511,34 @@ const Index = () => {
             </p>
           </motion.div>
 
-          <div className="grid gap-12 md:gap-16">
-            {[
-              {
-                title: "AI-Powered Resume Builder",
-                description: "Create ATS-optimized resumes with intelligent suggestions tailored to your target roles. Our AI analyzes job descriptions and provides keyword recommendations.",
-                features: ["Smart keyword optimization", "ATS-friendly templates", "Real-time scoring", "Industry-specific formatting"],
-                icon: FileText,
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              {
-                title: "Intelligent Job Matching",
-                description: "Discover opportunities that perfectly align with your skills and career goals. Our matching algorithm learns from your preferences and behavior.",
-                features: ["Personalized recommendations", "Skills gap analysis", "Career path insights", "Market trends"],
-                icon: Briefcase,
-                gradient: "from-purple-500 to-pink-500"
-              },
-              {
-                title: "Interview Preparation",
-                description: "Practice with AI-powered mock interviews. Get instant feedback on your responses, body language, and communication skills.",
-                features: ["Video practice sessions", "Real-time feedback", "Common questions database", "Performance analytics"],
-                icon: Mic,
-                gradient: "from-green-500 to-emerald-500"
-              },
-              {
-                title: "Application Tracking",
-                description: "Manage all your applications in one centralized dashboard. Never miss a deadline or follow-up with smart reminders and automated workflows.",
-                features: ["Visual pipeline", "Automated reminders", "Status tracking", "Success analytics"],
-                icon: BarChart3,
-                gradient: "from-orange-500 to-red-500"
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                {...getAnimationProps(index * 0.12)}
-                viewport={{ once: true }}
-                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
-              >
-                <div className="flex-1">
-                  <motion.div
-                    {...(prefersReducedMotion ? { initial: { opacity: 0 }, whileInView: { opacity: 1 } } : {
-                      initial: { opacity: 0, scale: 0.95 },
-                      whileInView: { opacity: 1, scale: 1 }
-                    })}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5 }}
-                    className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-xl`}
-                  >
-                    <feature.icon className="h-8 w-8 text-white" />
-                  </motion.div>
-                  <h3 className="mb-4 text-2xl font-bold md:text-3xl">{feature.title}</h3>
-                  <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                  <ul className="grid gap-3 sm:grid-cols-2">
-                    {feature.features.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="space-y-32">
+            <AnimatedFeature
+              icon={FileText}
+              title="AI-Powered Resume Builder"
+              description="Create ATS-optimized resumes with intelligent suggestions tailored to your target roles. Our AI analyzes job descriptions and provides keyword recommendations. Smart keyword optimization, ATS-friendly templates, real-time scoring, and industry-specific formatting ensure your resume passes filters and catches recruiter attention."
+              position="left"
+            />
 
-                <motion.div
-                  className="flex-1"
-                  {...(prefersReducedMotion ? {} : { whileHover: { scale: 1.02 } })}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className={`relative rounded-2xl p-12 bg-gradient-to-br ${feature.gradient} shadow-2xl`}>
-                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-2xl"></div>
-                    <div className="relative">
-                      <motion.div
-                        animate={{
-                          y: [0, -10, 0],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      >
-                        <feature.icon className="h-48 w-48 mx-auto text-white/20" strokeWidth={0.5} />
-                      </motion.div>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
+            <AnimatedFeature
+              icon={Briefcase}
+              title="Intelligent Job Matching"
+              description="Discover opportunities that perfectly align with your skills and career goals. Our matching algorithm learns from your preferences and behavior. Get personalized recommendations, skills gap analysis, career path insights, and market trends to help you grow and find the best matches."
+              position="right"
+            />
+
+            <AnimatedFeature
+              icon={Mic}
+              title="Interview Preparation"
+              description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics help you ace every interview."
+              position="left"
+            />
+
+            <AnimatedFeature
+              icon={BarChart3}
+              title="Application Tracking"
+              description="Manage all your applications in one centralized dashboard. Never miss a deadline or follow-up with smart reminders and automated workflows. Visual pipeline management, automated reminders, status tracking, and success analytics keep you organized."
+              position="right"
+            />
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
-import StatsCounter from "@/components/StatsCounter";
+import StatsSection from "@/components/StatsSection";
 import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -142,39 +142,7 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-subtle">
-        <div className="container mx-auto px-4">
-          <motion.div
-            {...getAnimationProps()}
-            className="grid grid-cols-2 gap-8 md:grid-cols-4"
-          >
-            <div className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={10} suffix="+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Active Pilot Programs</p>
-            </div>
-            <div className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={5} suffix="K+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Job Postings</p>
-            </div>
-            <div className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={1} suffix="K+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Resumes Analyzed</p>
-            </div>
-            <div className="text-center">
-              <div className="mb-2 text-4xl font-bold text-primary">
-                <StatsCounter end={50} suffix="+" />
-              </div>
-              <p className="text-sm text-muted-foreground">Partner Companies</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* Segments We Serve Section */}
       <section className="py-20 bg-background">

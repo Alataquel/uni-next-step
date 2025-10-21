@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AnimatedFeature from "@/components/AnimatedFeature";
+import DemoVideo from "@/components/DemoVideo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Briefcase, FileText, Award, Mail, BarChart3, ArrowRight, Sparkles, Zap, Target, Star, TrendingUp, CheckCircle } from "lucide-react";
@@ -119,6 +120,13 @@ const Students = () => {
           </div>
         </div>
       </section>
+
+      {/* Demo Video Section */}
+      <DemoVideo 
+        videoId="dQw4w9WgXcQ"
+        title="See ApplyLab in Action"
+        description="Watch how students are landing their dream jobs faster with our AI-powered tools"
+      />
 
       {/* Benefits Section */}
       <section className="py-20 bg-gradient-to-b from-background to-muted/30">

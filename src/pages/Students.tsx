@@ -4,7 +4,7 @@ import AnimatedFeature from "@/components/AnimatedFeature";
 import DemoVideo from "@/components/DemoVideo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Briefcase, FileText, Award, Mail, BarChart3, ArrowRight, Sparkles, Zap, Target, Star, TrendingUp, CheckCircle } from "lucide-react";
+import { Briefcase, FileText, Award, Mail, BarChart3, ArrowRight, Sparkles, Zap, Target, Star, TrendingUp, CheckCircle, Mic, BookOpen } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -257,6 +257,20 @@ const Students = () => {
               icon={BarChart3}
               title="Track Everything, Miss Nothing"
               description="Keep tabs on every application with smart reminders and follow-ups. Never wonder 'did I apply there?' again. Stay 100% organized with our comprehensive application tracking system."
+              position="left"
+            />
+
+            <AnimatedFeature
+              icon={Mic}
+              title="Interview Preparation (Coming Soon)"
+              description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics will help you ace every interview."
+              position="right"
+            />
+
+            <AnimatedFeature
+              icon={BookOpen}
+              title="Case Study Prep (Coming Soon)"
+              description="Master case interviews with structured frameworks and practice scenarios. Our platform will provide industry-specific case studies, step-by-step solution guides, and expert tips to help you excel in consulting and analytical interviews."
               position="left"
             />
           </div>

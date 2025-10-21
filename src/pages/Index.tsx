@@ -5,7 +5,7 @@ import StatsCounter from "@/components/StatsCounter";
 import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Shield, Globe, CheckCircle2, Mic } from "lucide-react";
+import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Shield, Globe, CheckCircle2, Mic, FileCheck, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
@@ -539,36 +539,36 @@ const Index = () => {
               <span className="text-primary">Every Career Need</span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              From resume building to job matching, interview prep to application tracking - everything you need in one powerful platform.
+              From AI-powered resume grading to cover letter generation - with interview prep and case study tools coming soon.
             </p>
           </motion.div>
 
           <div className="space-y-32">
             <AnimatedFeature
-              icon={FileText}
-              title="AI-Powered Resume Builder"
-              description="Create ATS-optimized resumes with intelligent suggestions tailored to your target roles. Our AI analyzes job descriptions and provides keyword recommendations. Smart keyword optimization, ATS-friendly templates, real-time scoring, and industry-specific formatting ensure your resume passes filters and catches recruiter attention."
+              icon={FileCheck}
+              title="AI-Powered Resume Grader"
+              description="Get instant, actionable feedback on your resume with our advanced AI analysis. Our system evaluates formatting, keyword optimization, ATS compatibility, and content quality. Receive detailed scoring across multiple dimensions, personalized improvement suggestions, and industry-specific recommendations to make your resume stand out."
               position="left"
             />
 
             <AnimatedFeature
-              icon={Briefcase}
-              title="Intelligent Job Matching"
-              description="Discover opportunities that perfectly align with your skills and career goals. Our matching algorithm learns from your preferences and behavior. Get personalized recommendations, skills gap analysis, career path insights, and market trends to help you grow and find the best matches."
+              icon={FileText}
+              title="Cover Letter Maker AI"
+              description="Generate compelling, personalized cover letters tailored to each job application. Our AI analyzes job descriptions and crafts professional cover letters that highlight your relevant experience and skills. Save time while maintaining authenticity and personalization for every application."
               position="right"
             />
 
             <AnimatedFeature
               icon={Mic}
-              title="Interview Preparation"
-              description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics help you ace every interview."
+              title="Interview Preparation (Coming Soon)"
+              description="Practice with AI-powered mock interviews and get instant feedback on your responses, body language, and communication skills. Video practice sessions, real-time feedback, common questions database, and performance analytics will help you ace every interview."
               position="left"
             />
 
             <AnimatedFeature
-              icon={BarChart3}
-              title="Application Tracking"
-              description="Manage all your applications in one centralized dashboard. Never miss a deadline or follow-up with smart reminders and automated workflows. Visual pipeline management, automated reminders, status tracking, and success analytics keep you organized."
+              icon={BookOpen}
+              title="Case Study Prep (Coming Soon)"
+              description="Master case interviews with structured frameworks and practice scenarios. Our platform will provide industry-specific case studies, step-by-step solution guides, and expert tips to help you excel in consulting and analytical interviews."
               position="right"
             />
           </div>

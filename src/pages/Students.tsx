@@ -24,8 +24,8 @@ const benefits: Benefit[] = [
   },
   {
     icon: Target,
-    title: "Actually Get Interviews",
-    description: "Optimized resumes = more callbacks. It's that simple.",
+    title: "Get Better Results",
+    description: "AI-graded resumes and tailored cover letters = better applications.",
     color: "from-blue-500 to-cyan-500",
   },
   {
@@ -103,7 +103,7 @@ const Students = () => {
               {[
                 { icon: CheckCircle, text: "No credit card needed" },
                 { icon: CheckCircle, text: "Set up in 2 minutes" },
-                { icon: CheckCircle, text: "Land interviews faster" },
+                { icon: CheckCircle, text: "Get better results faster" },
               ].map((item, i) => (
                 <motion.div
                   key={i}

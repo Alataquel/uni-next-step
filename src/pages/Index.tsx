@@ -1,39 +1,14 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
+import StatsCounter from "@/components/StatsCounter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket } from "lucide-react";
+import { ArrowRight, Check, Briefcase, Building2, Sparkles, Zap, TrendingUp, Users, Award, Star, Rocket, Target, FileText, BarChart3, Brain, Eye, Mic, Shield, Globe, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 
-interface FeatureCardProps {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  delay?: number;
-}
-
-const FeatureCard = ({ icon: Icon, title, description, delay = 0 }: FeatureCardProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ duration: 0.5, delay }}
-  >
-    <Card className="group relative overflow-hidden border-border bg-card p-8 transition-all hover:shadow-lg hover:border-primary/50 h-full">
-      <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-5"></div>
-      <div className="relative">
-        <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-          <Icon className="h-6 w-6" />
-        </div>
-        <h3 className="mb-2 text-xl font-bold">{title}</h3>
-        <p className="text-muted-foreground">{description}</p>
-      </div>
-    </Card>
-  </motion.div>
-);
 
 const Index = () => {
   return (
@@ -147,6 +122,289 @@ const Index = () => {
             100% { background-position: -200% 0; }
           }
         `}</style>
+      </section>
+
+      {/* Segments We Serve Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16 text-center"
+          >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Segments We Serve
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              360° impact on the talent ecosystem with specialized solutions for every stakeholder.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-3">
+            <Link to="/students">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -8 }}
+              >
+                <Card className="group relative overflow-hidden border-2 border-primary/20 bg-card p-8 transition-all hover:shadow-2xl hover:border-primary cursor-pointer h-full">
+                  <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-10"></div>
+                  <div className="relative text-center">
+                    <motion.div
+                      className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-primary text-primary-foreground shadow-xl"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <Briefcase className="h-10 w-10" />
+                    </motion.div>
+                    <h3 className="mb-4 text-2xl font-bold">Students</h3>
+                    <p className="mb-6 text-muted-foreground">
+                      Accelerate your career journey with AI-powered tools that provide instant feedback for targeted careers and opportunities.
+                    </p>
+                    <Button variant="ghost" className="group-hover:text-primary">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            </Link>
+
+            <Link to="/universities">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -8 }}
+              >
+                <Card className="group relative overflow-hidden border-2 border-accent/20 bg-card p-8 transition-all hover:shadow-2xl hover:border-accent cursor-pointer h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-primary/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                  <div className="relative text-center">
+                    <motion.div
+                      className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-accent to-accent/80 text-white shadow-xl"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                    >
+                      <Building2 className="h-10 w-10" />
+                    </motion.div>
+                    <h3 className="mb-4 text-2xl font-bold">Universities</h3>
+                    <p className="mb-6 text-muted-foreground">
+                      Engage students and alumni with the most advanced AI-powered career services platform for measurable outcomes.
+                    </p>
+                    <Button variant="ghost" className="group-hover:text-accent">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            </Link>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              whileHover={{ y: -8 }}
+            >
+              <Card className="group relative overflow-hidden border-2 border-border bg-card p-8 transition-all hover:shadow-2xl hover:border-primary/50 cursor-pointer h-full">
+                <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity group-hover:opacity-5"></div>
+                <div className="relative text-center">
+                  <motion.div
+                    className="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 text-primary shadow-xl"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    <Users className="h-10 w-10" />
+                  </motion.div>
+                  <h3 className="mb-4 text-2xl font-bold">Corporates</h3>
+                  <p className="mb-6 text-muted-foreground">
+                    Manage talent navigation with intelligent solutions for internal mobility, strategic hiring, and workforce development.
+                  </p>
+                  <Button variant="ghost" className="group-hover:text-primary">
+                    Coming Soon <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </div>
+              </Card>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Trusted by Leading{" "}
+              <span className="text-primary">Institutions Worldwide</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-4">
+            {[
+              { icon: Building2, number: 50, suffix: "+", label: "University Partners" },
+              { icon: Users, number: 100, suffix: "K+", label: "Active Students" },
+              { icon: TrendingUp, number: 85, suffix: "%", label: "Placement Rate" },
+              { icon: Award, number: 500, suffix: "K+", label: "Resumes Optimized" },
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="relative overflow-hidden border-2 bg-card p-8 text-center transition-all hover:shadow-xl hover:border-primary/50">
+                  <div className="absolute inset-0 bg-gradient-primary opacity-0 transition-opacity hover:opacity-5"></div>
+                  <div className="relative">
+                    <stat.icon className="mx-auto mb-4 h-12 w-12 text-primary" />
+                    <div className="mb-2 text-4xl font-bold text-primary">
+                      <StatsCounter end={stat.number} suffix={stat.suffix} />
+                    </div>
+                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Platform Capabilities */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Our AI Platform Fuels{" "}
+              <span className="text-primary">Your Success</span>
+            </h2>
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+              World-class capabilities powering ApplyLab's career acceleration platform.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: Brain,
+                title: "Smart Parsing",
+                description: "Instant benchmarking and scoring for targeted guidance. User profiles evaluated on 100+ parameters including language, skills, and presentation.",
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                icon: Eye,
+                title: "Computer Vision",
+                description: "Audio-video analysis on body language, speech, and content. Real-time feedback on verbal and non-verbal communication.",
+                color: "from-blue-500 to-cyan-500"
+              },
+              {
+                icon: Target,
+                title: "Smart Skills Engine",
+                description: "Skill detection through advanced machine learning algorithms. Comprehensive competency mapping and gap analysis.",
+                color: "from-green-500 to-emerald-500"
+              },
+              {
+                icon: FileText,
+                title: "NLP Processing",
+                description: "Natural language understanding for resume optimization, cover letter generation, and application content enhancement.",
+                color: "from-orange-500 to-red-500"
+              },
+              {
+                icon: BarChart3,
+                title: "Predictive Analytics",
+                description: "Data-driven insights to predict success rates and optimize application strategies for better outcomes.",
+                color: "from-indigo-500 to-purple-500"
+              },
+              {
+                icon: Zap,
+                title: "Real-time Feedback",
+                description: "Instant, actionable recommendations powered by AI to continuously improve your career materials and interview skills.",
+                color: "from-yellow-500 to-orange-500"
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="group relative overflow-hidden border-2 bg-card p-8 transition-all hover:shadow-2xl hover:-translate-y-2 h-full">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 transition-opacity group-hover:opacity-10`}></div>
+                  <div className="relative">
+                    <motion.div
+                      className={`mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.color} shadow-lg`}
+                      whileHover={{ scale: 1.1, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                    >
+                      <feature.icon className="h-8 w-8 text-white" />
+                    </motion.div>
+                    <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              Why Leading Universities{" "}
+              <span className="text-primary">Choose ApplyLab</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[
+              { icon: Shield, title: "Enterprise Security", description: "Bank-level encryption and compliance with SOC 2, GDPR, and FERPA standards" },
+              { icon: Rocket, title: "Quick Deployment", description: "Get started in days, not months. Seamless SSO integration and white-label options" },
+              { icon: Globe, title: "Global Scale", description: "Support for 50+ languages and localized content for worldwide deployment" },
+              { icon: CheckCircle2, title: "Proven Results", description: "24% average increase in placement rates across partner institutions" },
+              { icon: Users, title: "Dedicated Support", description: "24/7 customer success team and personalized onboarding and training" },
+              { icon: TrendingUp, title: "Continuous Innovation", description: "Regular updates with latest AI advancements and industry best practices" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex gap-4"
+              >
+                <div className="flex-shrink-0">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                    <item.icon className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* University Partner Section */}
@@ -274,7 +532,7 @@ const Index = () => {
       </section>
 
       {/* Platform Features */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -283,41 +541,106 @@ const Index = () => {
             className="mb-16 text-center"
           >
             <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Built for{" "}
-              <span className="text-primary">
-                Scale & Impact
-              </span>
+              Comprehensive Solutions for{" "}
+              <span className="text-primary">Every Career Need</span>
             </h2>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-              Enterprise-grade platform designed to serve thousands of students while providing 
-              actionable insights to career services teams.
+              From resume building to job matching, interview prep to application tracking - everything you need in one powerful platform.
             </p>
           </motion.div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            <FeatureCard
-              icon={Zap}
-              title="AI-Powered Intelligence"
-              description="Advanced machine learning algorithms that match students with opportunities and provide personalized guidance."
-              delay={0}
-            />
-            <FeatureCard
-              icon={TrendingUp}
-              title="Real-Time Analytics"
-              description="Live dashboards showing placement rates, engagement metrics, and outcome trends across your institution."
-              delay={0.1}
-            />
-            <FeatureCard
-              icon={Sparkles}
-              title="Seamless Integration"
-              description="Easy deployment with single sign-on, API access, and integration with your existing student information systems."
-              delay={0.2}
-            />
+          <div className="grid gap-12 md:gap-16">
+            {[
+              {
+                title: "AI-Powered Resume Builder",
+                description: "Create ATS-optimized resumes with intelligent suggestions tailored to your target roles. Our AI analyzes job descriptions and provides keyword recommendations.",
+                features: ["Smart keyword optimization", "ATS-friendly templates", "Real-time scoring", "Industry-specific formatting"],
+                icon: FileText,
+                gradient: "from-blue-500 to-cyan-500"
+              },
+              {
+                title: "Intelligent Job Matching",
+                description: "Discover opportunities that perfectly align with your skills and career goals. Our matching algorithm learns from your preferences and behavior.",
+                features: ["Personalized recommendations", "Skills gap analysis", "Career path insights", "Market trends"],
+                icon: Briefcase,
+                gradient: "from-purple-500 to-pink-500"
+              },
+              {
+                title: "Interview Preparation",
+                description: "Practice with AI-powered mock interviews. Get instant feedback on your responses, body language, and communication skills.",
+                features: ["Video practice sessions", "Real-time feedback", "Common questions database", "Performance analytics"],
+                icon: Mic,
+                gradient: "from-green-500 to-emerald-500"
+              },
+              {
+                title: "Application Tracking",
+                description: "Manage all your applications in one centralized dashboard. Never miss a deadline or follow-up with smart reminders and automated workflows.",
+                features: ["Visual pipeline", "Automated reminders", "Status tracking", "Success analytics"],
+                icon: BarChart3,
+                gradient: "from-orange-500 to-red-500"
+              },
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
+              >
+                <div className="flex-1">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} shadow-xl`}
+                  >
+                    <feature.icon className="h-8 w-8 text-white" />
+                  </motion.div>
+                  <h3 className="mb-4 text-2xl font-bold md:text-3xl">{feature.title}</h3>
+                  <p className="mb-6 text-lg text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    {feature.features.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-muted-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <motion.div
+                  className="flex-1"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className={`relative rounded-2xl p-12 bg-gradient-to-br ${feature.gradient} shadow-2xl`}>
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-2xl"></div>
+                    <div className="relative">
+                      <motion.div
+                        animate={{
+                          y: [0, -10, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <feature.icon className="h-48 w-48 mx-auto text-white/20" strokeWidth={0.5} />
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Final CTA Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -325,27 +648,77 @@ const Index = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="relative overflow-hidden rounded-3xl bg-gradient-primary p-12 md:p-16 text-center shadow-2xl"
+            className="relative overflow-hidden rounded-3xl bg-gradient-primary p-12 md:p-20 text-center shadow-2xl"
           >
-            <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+            {/* Animated Background Pattern */}
+            <div className="absolute inset-0">
+              <motion.div
+                className="absolute inset-0 opacity-20"
+                style={{
+                  backgroundImage: "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)",
+                  backgroundSize: "40px 40px",
+                }}
+                animate={{
+                  backgroundPosition: ["0px 0px", "40px 40px"],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+            </div>
+            
             <div className="relative">
-              <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl">
-                Ready to Transform Career Outcomes?
-              </h2>
-              <p className="mb-8 text-lg text-primary-foreground/90 mx-auto max-w-2xl">
-                Join leading universities leveraging ApplyLab to provide world-class career services.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/universities">
-                  <Button size="lg" variant="secondary" className="group shadow-xl">
-                    Become a Partner
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-xl">
+                  <Sparkles className="h-4 w-4" />
+                  Join 50+ Leading Universities
+                </div>
+                <h2 className="mb-4 text-3xl font-bold text-primary-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+                  Ready to Transform Career Outcomes?
+                </h2>
+                <p className="mb-8 text-xl text-primary-foreground/90 mx-auto max-w-2xl">
+                  Partner with ApplyLab to provide world-class career services and demonstrate measurable impact.
+                </p>
+                <div className="flex flex-wrap justify-center gap-4">
+                  <Link to="/universities">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button size="lg" variant="secondary" className="group shadow-2xl text-lg px-8">
+                        Become a Partner
+                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </motion.div>
+                  </Link>
+                  <Button size="lg" variant="outline" className="border-2 border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur text-lg px-8">
+                    Schedule a Demo
                   </Button>
-                </Link>
-                <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 backdrop-blur">
-                  Schedule a Demo
-                </Button>
-              </div>
+                </div>
+
+                {/* Trust Indicators */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-primary-foreground/80"
+                >
+                  {[
+                    { icon: Shield, text: "Enterprise Security" },
+                    { icon: Globe, text: "Global Reach" },
+                    { icon: Award, text: "Industry Leading" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <item.icon className="h-4 w-4" />
+                      <span>{item.text}</span>
+                    </div>
+                  ))}
+                </motion.div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

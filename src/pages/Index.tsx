@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import VideoBackground from "@/components/VideoBackground";
-import PilotMetrics from "@/components/PilotMetrics";
+import StatsCounter from "@/components/StatsCounter";
 import AnimatedFeature from "@/components/AnimatedFeature";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -141,8 +141,40 @@ const Index = () => {
         `}</style>
       </section>
 
-      {/* Pilot Metrics Section */}
-      <PilotMetrics />
+      {/* Stats Section */}
+      <section className="py-20 bg-gradient-subtle">
+        <div className="container mx-auto px-4">
+          <motion.div
+            {...getAnimationProps()}
+            className="grid grid-cols-2 gap-8 md:grid-cols-4"
+          >
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary">
+                <StatsCounter end={10} suffix="+" />
+              </div>
+              <p className="text-sm text-muted-foreground">Universities in Pipeline</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary">
+                <StatsCounter end={5} />
+              </div>
+              <p className="text-sm text-muted-foreground">Active Pilot Programs</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary">
+                <StatsCounter end={2} suffix="K+" />
+              </div>
+              <p className="text-sm text-muted-foreground">Students Reached</p>
+            </div>
+            <div className="text-center">
+              <div className="mb-2 text-4xl font-bold text-primary">
+                <StatsCounter end={1} suffix="K+" />
+              </div>
+              <p className="text-sm text-muted-foreground">Resumes Analyzed</p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Segments We Serve Section */}
       <section className="py-20 bg-background">

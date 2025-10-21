@@ -43,6 +43,34 @@ const Students = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-subtle">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, 50, 0],
+              y: [0, 30, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, -30, 0],
+              y: [0, 50, 0],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+
         <div className="container relative mx-auto px-4 z-10">
           <div className="mx-auto max-w-5xl text-center">
             <motion.div

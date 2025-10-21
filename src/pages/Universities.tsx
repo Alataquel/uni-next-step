@@ -43,6 +43,46 @@ const Universities = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-subtle">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute top-1/3 -left-32 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, 60, 0],
+              y: [0, 40, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 -right-32 w-[550px] h-[550px] bg-accent/10 rounded-full blur-3xl"
+            animate={{
+              x: [0, -40, 0],
+              y: [0, 60, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute top-20 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-2xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+
         <div className="container relative mx-auto px-4 z-10">
           <div className="mx-auto max-w-5xl text-center">
             <motion.div
